@@ -1,0 +1,86 @@
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center bg-light-gray">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 order-1 order-lg-2 hero-img">
+                <img src="assets/img/hero-img.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-1">
+            </div>
+
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+
+
+                <div class="ui placeholder segment">
+                    <div class="ui middle aligned center aligned grid">
+                        <div class="column">
+                            <h2 class="ui image header">
+                                <div class="content">
+
+
+                                    <span> <img src="assets/img/logo.png" style="height: 20px; width: 80px;" alt="">Log-in </span>
+                                </div>
+                            </h2>
+                            <form [formGroup]="loginUserForm" (ngSubmit)="loginRegisteredUser()" class="ui large form">
+                                <div class="ui stacked secondary  segment">
+                                    <div class="field">
+                                        <div class="control ui left icon input right icon">
+
+
+                                            <input type="text" name="email" formControlName="username" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                            <i class="user icon"></i>
+
+                                            <div *ngIf="f.username.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+
+                                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.username.errors.required">Username is required</span>
+                                                    <span *ngIf="f.username.errors.minlength">User Name must be atleast 6 characters</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="field ">
+                                        <div class="control ui left icon input right icon ">
+                                            <i class="lock icon "></i>
+                                            <input type="password" name="password " formControlName="password" placeholder="Password " [ngClass]="{'is-invalid': submitted && f.password.errors }" />
+
+                                            <div *ngIf="f.password.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+                                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.password.errors.required">Password is required</span>
+                                                    <span *ngIf="f.password.errors?.invalidPassword">Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="ui fluid large teal submit button" (click)="loginRegisteredUser()" type="submit">Login</div>
+                                </div>
+
+                                <div class="ui error message"></div>
+
+                            </form>
+
+                            <div class="ui message">
+                                New to us? <a routerLink="/sign-up">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<app-footer></app-footer>
+
+<!-- End Hero -->

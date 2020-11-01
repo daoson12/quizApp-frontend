@@ -1,0 +1,24 @@
+<div class="container">
+    <h2 class="text-center" style="
+    color: white;
+text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px rgb(18, 18, 214);
+ ">Wellcome User Please Select your Topic to Start your Quiz</h2>
+    <div class="row mt-5">
+
+        <div class="col-md-4" *ngFor="let test of takeTest">
+            <div class="four columns">
+                <a href="#">
+                    <div class="content-box color-effect-1">
+                        <h3>{{test.course1}}</h3>
+                        <div class="box-icon-wrap box-icon-effect-1 box-icon-effect-1a">
+                            <div class="box-icon"><i class="fa fa-user"></i></div>
+                        </div>
+                        <button class="btn btn-primary shadow" routerLink="/question">START QUIZ</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

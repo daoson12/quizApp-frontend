@@ -1,0 +1,149 @@
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center bg-light-gray">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 order-1 order-lg-2 hero-img mt-5">
+                <img src="assets/img/hero-img.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-1">
+            </div>
+
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+
+
+                <div class="ui placeholder segment">
+                    <div class="ui middle aligned center aligned grid">
+                        <div class="column">
+                            <h2 class="ui image header">
+                                <div class="content">
+                                    Register to your account
+                                </div>
+                            </h2>
+                            <form [formGroup]=" registrationFormGroup" (ngSubmit)="registerUser()" class=" ui large form ">
+                                <div class="ui stacked secondary segment ">
+                                    <div class="field ">
+                                        <div class="control ui left icon input right icon ">
+
+                                            <input type="text " name="firstname" formControlName="firstName" placeholder="Enter Your first Name " [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                            <i class="user icon"></i>
+                                            <div *ngIf="f.firstName.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+
+                                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.firstName.errors.required">FirstName is required</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field ">
+                                        <div class="control ui left icon input right icon ">
+                                            <i class="user icon "></i>
+                                            <input type="text " name="surname " formControlName="surname" placeholder="Enter Your surname " [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+
+                                            <div *ngIf="f.surname.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+
+                                            <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.surname.errors.required">FirstName is required</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field ">
+                                        <div class="control ui left icon input right icon ">
+                                            <i class="user icon "></i>
+                                            <input type="text " name="username" formControlName="username" placeholder="Enter Your username" [ngClass]="{ 'is-invalid': submitted && f. username.errors }" />
+                                            <div *ngIf="f.username.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+
+                                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.username.errors.required">FirstName is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="field ">
+                                        <div class="control ui left icon input right icon ">
+                                            <i class="envelope icon "></i>
+                                            <input type="text" name="email" formControlName="email" placeholder="E-mail address " [ngClass]="{'is-invalid': submitted && f.email.errors }" />
+                                            <div *ngIf="f.email.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+                                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.email.errors.required">FirstName is required</span>
+                                                    <span *ngIf="f.email.errors.email">Enter a valid email address</span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="field ">
+                                        <div class="control ui left icon input right icon ">
+                                            <i class="lock icon "></i>
+                                            <input type="password" name="password" formControlName="password" placeholder="Password " [ngClass]="{'is-invalid': submitted && f.password.errors }" />
+
+                                            <div *ngIf="f.password.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+                                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.password.errors.required">Password is required</span>
+                                                    <span *ngIf="f.password.errors?.invalidPassword">Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="field ">
+                                        <div class="control ui left icon input right icon ">
+                                            <i class="lock icon "></i>
+                                            <input type="password" name="comfirmpassword" formControlName="confirmpassword" placeholder="Comfirm Password " [ngClass]="{'is-invalid': submitted && f.confirmpassword.errors }" />
+
+
+                                            <div *ngIf="f.confirmpassword.valid; then thenBlock else elseBlock"></div>
+                                            <ng-template #thenBlock> <i class="check icon" style="left: auto; right: 1px ;color:rgb(4, 177, 4);"></i></ng-template>
+                                            <ng-template #elseBlock> <i class="cancel icon" style="left: auto; right: 1px ;color:rgb(177, 4, 4);"></i></ng-template>
+                                            <div *ngIf="submitted && f.confirmpassword.errors" class="invalid-feedback">
+                                                <div>
+                                                    <span *ngIf="f.confirmpassword.errors.required">Confirm Password is required</span>
+                                                    <span *ngIf="f.confirmpassword.errors?.passwordMismatch">Password doesnot match </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui fluid large teal submit button " (click)="registerUser() " type="submit ">Register</div>
+                                </div>
+
+                                <div class="ui error message "></div>
+
+                            </form>
+
+                            <div class="ui message ">
+                                Already Have an Account? <a routerLink="/sign-in ">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<app-footer></app-footer>
+
+<!-- End Hero -->
