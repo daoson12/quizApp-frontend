@@ -21,10 +21,10 @@
             <i class="keyboard icon"></i> Take Quiz
         </a>
 
-        <a class="item ">
+        <a class="item">
             <i class="tachometer alternate icon"></i> Dashboard
         </a>
-        <div class="right menu ">
+        <div class="right menu">
             <div class="item">
                 <div class="ui icon input">
                     <input type="text" placeholder="Search...">
@@ -35,10 +35,10 @@
                 Help IOQ<i class="question circle icon"></i>
 
             </div>
-            <div class="item" routerLink="/sign-in">
+            <div class="item">
 
-                <div class="ui primary button" *ngIf="!service.loggedIn()"> <i class="sign-in icon"></i>Login</div>
-                <div class="ui primary button" *ngIf="service.loggedIn()" (click)="service.logoutUser()"> <i class="sign-out icon"></i>Logout</div>
+                <div lass="ui primary button " *ngIf="!service.loggedIn()" routerLink="/sign-in"> <i class="sign-in icon "></i>Login</div>
+                <div class="ui primary button " *ngIf="service.loggedIn()" (click)="service.logoutUser() " routerLink="/sign-in"> <i class="sign-out icon "></i>Logout</div>
             </div>
         </div>
 
